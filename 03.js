@@ -13,9 +13,10 @@
  * @returns {Array} 새로운 todos 배열
  */
 function updateTodoTitle(todos, id, newTitle) {
-  return todos.map((prop) =>
-    prop.id === id ? (prop.title = newTitle) : todos
+  const newTodos = todos.map((prop) =>
+    prop.id === id ? { ...prop, title: newTitle } : prop
   );
+  return newTodos;
 }
 // export 수정 불가
 export { updateTodoTitle };

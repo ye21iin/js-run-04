@@ -11,7 +11,13 @@
  * @returns {Promise<Array>}
  */
 
-async function filterTodosByKeyword(keyword) {}
+async function filterTodosByKeyword(keyword) {
+  const data = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const res = await data.json();
+  return [
+    ...res.filter((x) => x.title.toUpperCase().includes(keyword.toUpperCase())),
+  ];
+}
 
 // export 수정 불가
 export { filterTodosByKeyword };
